@@ -59,7 +59,7 @@ export const MenuContainer = styled.aside<{ $openMenu: boolean }>`
         bottom: 0;
         flex-direction: row;
         border-top: 1px solid #e5e5e5;
-        overflow: visible; /* Tira o scroll na barra inferior */
+        overflow: visible; 
         
         .closed-menu-container {
             flex-direction: row;
