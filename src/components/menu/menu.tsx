@@ -28,7 +28,6 @@ import HistoricoDenuncias from '../../assets/menu-icons/historico-de-denuncias.p
 import Ajuda from '../../assets/menu-icons/ajuda.png';
 import EviarFeedback from '../../assets/menu-icons/feedback.png';
 import IconeLogin from '../../assets/menu-icons/icone-login.png';
-import downloadsIcons from '../../assets/menu-icons/download.png';
 import seuCanal from '../../assets/menu-icons/seu-canal.png';
 import seusVídeos from '../../assets/menu-icons/seus-videos.png';
 import seusDownloads from '../../assets/menu-icons/seus-download.png';

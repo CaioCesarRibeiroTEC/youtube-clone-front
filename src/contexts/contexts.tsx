@@ -102,7 +102,7 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
                 setUserVideos(response.data.videos);
             }
         } catch (error) {
-            console.log('Erro ao buscar seus vídeos', error);
+            console.log('Erro ao buscar seus vídeos', error, user_id);
         }
     };
 

@@ -8,7 +8,7 @@ interface Props {
   channelImage: string;
   channelName: string;
   details: string;
-  isExpanded: boolean; // Prop para saber se o vídeo foi clicado e expandido
+  isExpanded?: boolean; // Prop para saber se o vídeo foi clicado e expandido
 }
 
 function VideoComponent({
