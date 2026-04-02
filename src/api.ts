@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // 1. Instância para o teu Back-end (Node.js na porta 4000)
 export const api = axios.create({
-  baseURL: 'https://youtube-clone-back-3.onrender.com', // <-- COLOQUE AQUI!
+  baseURL: 'https://youtube-clone-back-3.onrender.com',
 });
 
 // Interceptor: Pega no token guardado e envia automaticamente como um "crachá"

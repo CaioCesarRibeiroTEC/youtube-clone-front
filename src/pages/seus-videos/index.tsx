@@ -5,7 +5,8 @@ import { AddVideoButton, Container, Modal, ModalContent, UserContainer, UserName
 import VideoComponent from "../videoComponent"; 
 
 function SeusVideos() {
-    const { user, userVideos, createVideos, token, getVideos } = useContext(UserContext);
+    // Extraímos a variável 'login' do contexto
+    const { login, user, userVideos, createVideos, token, getVideos } = useContext(UserContext);
 
     const [modal, setModal] = useState(false);
     const [editMode, setEditMode] = useState(false);
@@ -105,6 +106,18 @@ function SeusVideos() {
     };
 
     const videosList = Array.isArray(userVideos) ? userVideos : [];
+
+    // Verificação de segurança: bloqueia acesso se não estiver logado
+    if (!login) {
+        return (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '80vh', color: '#fff' }}>
+                <h2 style={{ marginBottom: '10px' }}>Acesso Restrito</h2>
+                <p style={{ fontSize: '18px', color: '#aaa' }}>
+                    Seus vídeos estão disponíveis somente após fazer o login.
+                </p>
+            </div>
+        );
+    }
 
     return (
         <Container>

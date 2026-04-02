@@ -7,7 +7,8 @@ import * as S from "./styles";
 
 function SeuCanal() {
     const navigate = useNavigate();
-    const { user, userVideos, token, getVideos } = useContext(UserContext);
+    // Extraímos a variável 'login' do contexto
+    const { login, user, userVideos, token, getVideos } = useContext(UserContext);
     
     // Controle de qual aba está ativa no canal
     const [activeTab, setActiveTab] = useState('videos');
@@ -56,6 +57,18 @@ function SeuCanal() {
     };
 
     const videosList = Array.isArray(userVideos) ? userVideos : [];
+
+    // Se o usuário não estiver logado, ele para aqui e mostra a mensagem
+    if (!login) {
+        return (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '80vh', color: '#fff' }}>
+                <h2 style={{ marginBottom: '10px' }}>Acesso Restrito</h2>
+                <p style={{ fontSize: '18px', color: '#aaa' }}>
+                    Esta página está disponível somente após fazer o login.
+                </p>
+            </div>
+        );
+    }
 
     return (
         <S.Container>
