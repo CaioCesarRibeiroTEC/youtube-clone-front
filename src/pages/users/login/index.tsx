@@ -3,7 +3,6 @@ import { UserContext } from "../../../contexts/contexts";
 import CreateUserPage from "../createUser";
 import * as S from "./styles";
 
-// Ajuste o caminho da logo caso a sua pasta assets esteja num nível diferente
 import LoginIcon from '../../../assets/header-icons/YouTube-Logo-removebg-preview.png';
 
 function Login() {

@@ -26,7 +26,7 @@ export const SliderButtons = styled.div`
   }
 
   @media(max-width: 900px) {
-    display: none; /* No mobile fica melhor rolar com o dedo */
+    display: none; 
   }
 `;
 
@@ -37,13 +37,10 @@ export const ButtonsContainer = styled.div`
   align-items: center;
   overflow-x: hidden;   
   background-color: #f9f9f9;
-
-  @media(max-width: 900px) {
-    overflow-x: auto; /* Permite rolagem com o dedo no celular */
-    &::-webkit-scrollbar {
-        display: none;
-    }
-  }
+  overflow-x: auto; 
+   &::-webkit-scrollbar { display: none; }
+  -ms-overflow-style: none;  scrollbar-width: none; 
+  
 `;
 
 export const ButtonsContent = styled.div`

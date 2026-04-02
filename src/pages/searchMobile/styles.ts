@@ -7,7 +7,7 @@ export const Container = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 999; /* Fica por cima do Layout principal */
+  z-index: 999; 
   display: flex;
   flex-direction: column;
 `;
@@ -85,5 +85,5 @@ export const ResultsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-bottom: 60px; /* Espaço para não bater no bottom menu */
+  padding-bottom: 60px; 
 `;

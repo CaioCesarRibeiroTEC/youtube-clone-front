@@ -66,9 +66,9 @@ export const CloseButton = styled.button`
     transform: scale(1.1);
   }
 
-  /* REQUISITO DE UX MOBILE: Some com a "caxumba" em telas muito pequenas */
+
   @media(max-width: 620px) {
     display: none;
-    pointer-events: none; /* Garante que não haverá clique fantasma */
+    pointer-events: none;
   }
 `;

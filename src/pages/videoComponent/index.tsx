@@ -8,7 +8,7 @@ interface Props {
   channelImage: string;
   channelName: string;
   details: string;
-  isExpanded?: boolean; // Prop para saber se o vídeo foi clicado e expandido
+  isExpanded?: boolean;
 }
 
 function VideoComponent({
@@ -18,13 +18,13 @@ function VideoComponent({
   channelImage,
   channelName,
   details,
-  isExpanded, // Recebe a prop
+  isExpanded,
 }: Props) {
   return (
     <S.Container>
       <S.ImageContainer>
         {isExpanded ? (
-          // SE CLICOU: Carrega o Iframe pesado e dá play sozinho (autoplay=1)
+          
           <iframe
             width="100%"
             height="100%"
@@ -35,11 +35,11 @@ function VideoComponent({
             allowFullScreen
           ></iframe>
         ) : (
-          // SE ESTÁ PEQUENO (Padrão): Mostra a Thumbnail (capa) com o ícone de Play!
+         
           <React.Fragment>
             <S.Thumbnail src={thumbnailUrl} alt={title} />
             
-            {/* O ÍCONE DE PLAY "CAXUMBA" APARECE AQUI SÓ QUANDO ESTÁ PEQUENO */}
+            
             <S.PlayIconContainer>
               <S.PlayTriangle />
             </S.PlayIconContainer>

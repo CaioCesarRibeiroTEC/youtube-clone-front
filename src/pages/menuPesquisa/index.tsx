@@ -28,17 +28,16 @@ function MenuPesquisa() {
   };
 
   const categoryButtons = [
-    {name: 'Tudo', id: '0'}, {name: 'Games', id: '20'}, {name: 'Futebol', id: '17'},
-    {name: 'Entretenimento', id: '24'}, {name: 'Música', id: '10'}, {name: 'Pessoas e blogs', id: '22'},
+    {name: 'Tudo', id: '0'}, {name: 'Games', id: '20'}, {name: 'Futebol', id: '17'}, {name: 'Esportes', id: '17'},
+    {name: 'Entretenimento', id: '24'}, {name: 'Música', id: '10'}, {name: 'Pessoas e blogs', id: '22'}, {name: 'Beleza', id: '24'},
     {name: 'Automóveis e veículos', id: '2'}, {name: 'Animais e pets', id: '15'}, {name: 'Notícias e política', id: '25'},
-    {name: 'Comédia', id: '23'}, {name: 'Shorts', id: '26'}, {name: 'Infantil', id: '1'},
-    {name: 'Vida a dois', id: '22'}, {name: 'Esportes', id: '17'}, {name: 'Memes', id: '23'},
-    {name: 'Jogos pc', id: '20'}, {name: 'Jornais', id: '25'}, {name: 'Kids', id: '1'},
+    {name: 'Comédia', id: '23'}, {name: 'Shorts', id: '26'}, {name: 'Infantil', id: '1'}, {name: 'Vida a dois', id: '22'},
+    {name: 'Vida a dois', id: '22'}, {name: 'Esportes', id: '17'}, {name: 'Memes', id: '23'}, {name: 'Educação', id: '1'}, 
+    {name: 'Jogos pc', id: '20'}, {name: 'Jornais', id: '25'}, {name: 'Kids', id: '1'}, {name: 'Educação', id: '1'}, 
     {name: 'Hits do momento', id: '10'}, {name: 'Ciências', id: '15'}, {name: 'Viagens pelo mundo', id: '24'},
-    {name: 'Séries', id: '23'}, {name: 'Novidades', id: '24'}, {name: 'Educação', id: '1'}, 
-    {name: 'Ciência e tecnologia', id: '2'}, {name: 'Documentários', id: '26'}, 
-    {name: 'Economia', id: '25'}, {name: 'Moda e estilo', id: '23'}, {name: 'Comunicação', id: '10'},
-    {name: 'Beleza', id: '24'},
+    {name: 'Séries', id: '23'}, {name: 'Novidades', id: '24'}, {name: 'Educação', id: '1'}, {name: 'Beleza', id: '24'}, 
+    {name: 'Ciência e tecnologia', id: '2'}, {name: 'Documentários', id: '26'}, {name: 'Economia', id: '25'},
+     {name: 'Moda e estilo', id: '23'}, {name: 'Comunicação', id: '10'}, {name: 'Beleza', id: '24'},
   ];
 
   return(

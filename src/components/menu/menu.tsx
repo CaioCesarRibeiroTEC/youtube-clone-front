@@ -3,7 +3,7 @@ import { UserContext } from "../../contexts/contexts";
 import { useNavigate } from "react-router-dom";
 import * as S from "./menu-styles";
 
-// Importações dos seus ícones
+// Importações dos ícones
 import HomeIcon from "../../assets/menu-icons/home.png";
 import Shorts from '../../assets/menu-icons/shorts.png';
 import Inscricoes from '../../assets/menu-icons/inscrição.png';
@@ -35,10 +35,11 @@ import seusDownloads from '../../assets/menu-icons/seus-download.png';
 const bloco1 = [
     { name: 'Inicio', imagem: HomeIcon, link: '/' }, 
     { name: 'Shorts', imagem: Shorts, link: '/Shorts' }, 
+    { name: 'Seu Canal', imagem: Voce, link: '/seu-canal' }
 ];
 
 const bloco2 = [
-    { name: 'Seu Canal', imagem: Voce, link: '/seu-canal' }, 
+    { name: 'Seus vídeos', imagem: seusVídeos, link: '/seus-videos' },
     { name: 'Inscrições', imagem: Inscricoes, link: '/em-desenvolvimento' },
     { name: 'Histórico', imagem: Historico, link: '/em-desenvolvimento' }
 ];
@@ -206,14 +207,13 @@ function Menu() {
                 </>
             ) : (
                 <>
-                    {/* MENU DESKTOP RECOLHIDO OU MOBILE BOTTOM BAR */}
+                    {/* MOBILE BOTTOM BAR */}
                     <S.DivisorItem style={{ borderBottom: 'none', marginTop: 0 }} className="closed-menu-container">
                         {bloco7.map((item) => (
                             <S.MenuItem 
                                 key={item.name} 
                                 $openMenu={openMenu} 
                                 onClick={() => navigate(item.link)}
-                                // Ajuda a esconder itens específicos no mobile para caber na tela
                                 className={item.name === 'downloads' || item.name === 'YouTube Music' ? 'hide-on-mobile' : ''}
                             >
                                 <S.ButtonContainer>

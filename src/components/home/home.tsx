@@ -26,7 +26,6 @@ function Home() {
     const { openMenu, setOpenDropDown, categoryId, search } = useContext(UserContext);
     const [videos, setVideos] = useState<Video[]>([]);
     
-    // --- LÓGICA DE EXPANSÃO DOS VÍDEOS ---
     const [expandedVideo, setExpandedVideo] = useState<string | null>(null);
 
     const handleExpandVideo = (videoId: string) => {
@@ -120,24 +119,23 @@ function Home() {
    return (
        <HomeContainer>
            <MenuPesquisa />
-           
-           {/* Passamos o openMenu com o $ para não dar erro no console do React */}
+        
            <HomeContent $openMenu={openMenu} onClick={() => setOpenDropDown(false)}>
                {videos.map((video) => (
                    
                    <VideoWrapper 
-                       key={video.id} // Key obrigatória para a lista
+                       key={video.id}
                        $isExpanded={expandedVideo === video.id}
                        onClick={() => handleExpandVideo(video.id)}
                    >
-                       {/* O botão X da caxumba só aparece no vídeo expandido */}
+                       {/* O botão X que aparece no vídeo expandido */}
                        {expandedVideo === video.id && (
                            <CloseButton onClick={handleCloseVideo}>
                                X
                            </CloseButton>
                        )}
 
-                       {/* MÁGICA DE PERFORMANCE: Mudando a key, o React recarrega apenas este Iframe, cortando o áudio! */}
+                       {/*Mudando a key, o React recarrega apenas este Iframe, cortando o áudio! */}
                        <VideoComponent
                            videoId={video.id}
                            thumbnailUrl={video.snippet?.thumbnails?.maxres?.url || video.snippet?.thumbnails?.high?.url || ''}
@@ -145,8 +143,6 @@ function Home() {
                            channelImage={video.snippet?.channelTitle ? video.snippet.channelTitle.charAt(0).toUpperCase() : 'C'} 
                            channelName={video.snippet?.channelTitle || 'Canal Desconhecido'}
                            details={search ? getPublishedTime(video.snippet?.publishedAt) : `${formatViewCount(Number(video.statistics?.viewCount || 0))} • ${getPublishedTime(video.snippet?.publishedAt)}`}
-                           
-                           // ESSA LINHA É A MÁGICA NOVA:
                            isExpanded={expandedVideo === video.id}
                        />
                    </VideoWrapper>

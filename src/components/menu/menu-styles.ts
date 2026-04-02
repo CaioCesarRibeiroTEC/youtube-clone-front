@@ -15,8 +15,7 @@ export const MenuContainer = styled.aside<{ $openMenu: boolean }>`
     background-color: #fff;
     transition: width 0.1s;
     z-index: 50;
-
-    /* Estilizando a barra de rolagem (Fica fina e só aparece cor ao passar o mouse) */
+    
     &::-webkit-scrollbar {
         width: 8px;
     }

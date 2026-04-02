@@ -52,13 +52,11 @@ export const ButtonContainer = styled.button`
     width: 24px;
   }
 
-  /* Esconde ícones de pesquisa e microfone extra no desktop */
   &.mobile-search, &.mobile-mic {
     display: none;
   }
 
   @media (max-width: 900px) {
-    /* A MÁGICA AQUI: Esconde o menu hamburger no mobile */
     &.hamburger-menu {
       display: none;
     }
@@ -130,7 +128,6 @@ export const HeaderIcons = styled.div`
   gap: 8px;
 
   @media (max-width: 900px) {
-    /* No mobile, o espaçamento entre os ícones direitos é menor */
     gap: 0px;
   }
 `;
@@ -168,7 +165,6 @@ export const LoginButton = styled.button`
   }
 
   @media (max-width: 900px) {
-    /* No celular, o botão de login perde a borda e o texto, fica só o ícone azul */
     border: none;
     padding: 0;
     span {

@@ -5,7 +5,6 @@ import { AddVideoButton, Container, Modal, ModalContent, UserContainer, UserName
 import VideoComponent from "../videoComponent"; 
 
 function SeusVideos() {
-    // Extraímos a variável 'login' do contexto
     const { login, user, userVideos, createVideos, token, getVideos } = useContext(UserContext);
 
     const [modal, setModal] = useState(false);
@@ -26,10 +25,8 @@ function SeusVideos() {
         setCurrentVideoId('');
     };
 
-    // FUNÇÃO CORRIGIDA: Extração à prova de falhas do ID do YouTube
     const getYouTubeID = (url: string) => {
         if (!url) return null;
-        // Se já for apenas o ID de 11 caracteres, retorna ele mesmo
         if (url.length === 11 && !url.includes('http')) return url;
         
         const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -48,28 +45,27 @@ function SeusVideos() {
         }
     };
 
-    // Ações de Criar e Atualizar
+
     const handleSaveVideo = async () => {
         if (!user || !token) return;
         if (title === '' || description === '') return alert('Preencha os campos!');
 
         if (editMode) {
-            // Rota de UPDATE
+           
             try {
                 await api.put(`/videos/update-video/${currentVideoId}`, { title, description }, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 alert('Vídeo atualizado!');
-                getVideos(token, user.id); // Recarrega a lista
+                getVideos(token, user.id); 
             } catch (err) {
                 alert('Erro ao atualizar.');
             }
         } else {
-            // Rota de CREATE
+           
             if (videoLink === '') return alert('Cole o link do vídeo!');
             const finalThumbnail = thumbnail || "https://via.placeholder.com/1280x720?text=Sem+Imagem";
             
-            // Salvamos APENAS o ID extraído no banco para evitar quebrar o Iframe!
             const extractedId = getYouTubeID(videoLink);
             if (!extractedId) return alert('Link do YouTube inválido!');
 
@@ -107,7 +103,7 @@ function SeusVideos() {
 
     const videosList = Array.isArray(userVideos) ? userVideos : [];
 
-    // Verificação de segurança: bloqueia acesso se não estiver logado
+
     if (!login) {
         return (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '80vh', color: '#fff' }}>
@@ -134,7 +130,7 @@ function SeusVideos() {
                             <Input 
                                 type="text" placeholder="Cole o link aqui..." 
                                 value={videoLink} onChange={handleLinkChange} 
-                                disabled={editMode} // Não deixa mudar o link na hora de editar
+                                disabled={editMode} 
                                 style={{ backgroundColor: editMode ? '#f2f2f2' : '#fff' }}
                             />
                         </div>
@@ -160,7 +156,7 @@ function SeusVideos() {
                     videosList.map((video: any) => (
                         <div key={video.id} style={{ position: 'relative' }}>
                             <VideoComponent
-                                videoId={video.url} // Agora nós garantimos que o banco só salva a ID de 11 letras!
+                                videoId={video.url}
                                 thumbnailUrl={video.thumbnail}
                                 title={video.title}
                                 channelImage={user?.name ? user.name.charAt(0).toUpperCase() : 'U'}
@@ -168,7 +164,7 @@ function SeusVideos() {
                                 details="0 visualizações"
                             />
                             
-                            {/* Botões de Ação por cima do cartão do vídeo */}
+                            
                             <div style={{ position: 'absolute', top: 5, right: 5, display: 'flex', gap: '5px', zIndex: 10 }}>
                                 <button 
                                     onClick={() => openEditModal(video)}

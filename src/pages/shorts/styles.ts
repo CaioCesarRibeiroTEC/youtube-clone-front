@@ -2,38 +2,31 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  /* Define a altura exata do ecrã visível, descontando o Header de 56px */
-  height: calc(100vh - 56px); 
+    height: calc(100vh - 56px); 
   overflow-y: scroll;
-  
-  /* Mantém o scroll magnético */
   scroll-snap-type: y mandatory; 
   
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f1f1f1; /* Um cinza claro de fundo como o YouTube real */
+  background-color: #f1f1f1; 
   
-  /* Oculta as barras de rolagem visualmente */
   &::-webkit-scrollbar { display: none; }
   -ms-overflow-style: none;  scrollbar-width: none;  
 `;
 
 export const ShortCard = styled.div`
   width: 100%;
-  height: calc(100vh - 56px); /* Ocupa todo o ecrã disponível */
+  height: calc(100vh - 56px); 
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  /* Ponto de paragem do scroll magnético */
   scroll-snap-align: start; 
-  
-  padding: 10px 0; /* Pequeno respiro em cima e embaixo */
+  padding: 10px 0; 
   box-sizing: border-box;
 
   @media(max-width: 600px) {
-    padding: 0; /* Cola nas bordas no telemóvel */
+    padding: 0;
   }
 `;
 
@@ -49,14 +42,13 @@ export const VideoContainer = styled.div`
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   z-index: 1;
 
-  /* Garante que o Iframe preenche todo o VideoContainer verticalmente */
   iframe {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  /* No telemóvel, ele ocupa a tela inteira */
+
   @media(max-width: 600px) {
     height: 100%;
     aspect-ratio: 10/16; 

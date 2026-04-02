@@ -1,15 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as S from './styles';
 import { UserContext } from '../../contexts/contexts';
 import { youtubeApi } from '../../api';
 import MenuPesquisa from '../menuPesquisa';
 import VideoComponent from '../videoComponent';
-
 import VoltarIcon from '../../assets/header-icons/voltar.png';
 import CloseIcon from '../../assets/header-icons/close.png';
 import MicIcon from '../../assets/header-icons/microfone-gravador.png';
 import moment from 'moment';
+import * as S from './styles';
 
 function SearchMobile() {
     const navigate = useNavigate();
@@ -47,7 +46,7 @@ function SearchMobile() {
             } catch (error) {
                 console.error(error);
             }
-        }, 500); // Timeout de 500ms para não fazer uma requisição a CADA letra que o usuário digita
+        }, 200); // Timeout de 200ms para não fazer uma requisição a CADA letra que o usuário digita
 
         return () => clearTimeout(timer);
     }, [localSearch, categoryId]);

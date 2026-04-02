@@ -122,7 +122,7 @@ export const TabsContainer = styled.div`
   gap: 32px;
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 24px;
-  overflow-x: auto; /* Rolagem em telas pequenas */
+  overflow-x: auto; 
 
   &::-webkit-scrollbar {
     display: none;

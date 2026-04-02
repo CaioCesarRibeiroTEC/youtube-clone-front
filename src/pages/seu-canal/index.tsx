@@ -1,13 +1,13 @@
 import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/contexts";
-import VideoComponent from "../videoComponent"; // Ajuste o caminho se necessário
+import VideoComponent from "../videoComponent";
 import * as S from "./styles";
 
 
 function SeuCanal() {
     const navigate = useNavigate();
-    // Extraímos a variável 'login' do contexto
+
     const { login, user, userVideos, token, getVideos } = useContext(UserContext);
     
     // Controle de qual aba está ativa no canal
@@ -20,10 +20,10 @@ function SeuCanal() {
         }
     }, [user, token]);
 
-    // Cria um "@" falso (ex: se o nome for "Caio Cesar", vira "@caiocesar")
+
     const userHandle = user?.name ? `@${user.name.toLowerCase().replace(/\s/g, '')}` : '@usuario';
 
-    // Funções de formatação de tempo e visualizações
+
     const formatViews = (views: string | number | undefined) => {
         if (!views) return "0 visualizações";
         const num = Number(views);
@@ -58,7 +58,6 @@ function SeuCanal() {
 
     const videosList = Array.isArray(userVideos) ? userVideos : [];
 
-    // Se o usuário não estiver logado, ele para aqui e mostra a mensagem
     if (!login) {
         return (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '80vh', color: '#fff' }}>

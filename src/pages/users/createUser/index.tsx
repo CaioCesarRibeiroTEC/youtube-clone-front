@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../../../contexts/contexts";
-import { api } from "../../../api"; // Importando a API para fazermos o post direto aqui
+import { api } from "../../../api"; 
 import * as S from "./styles";
 import LoginIcon from '../../../assets/header-icons/YouTube-Logo-removebg-preview.png';
 
@@ -31,10 +31,10 @@ function CreateUserPage() {
   }, []);
 
   const createUser = async () => {
-    if (loading) return; // Evita duplo clique
+    if (loading) return;
     
     let isValid = true;
-    setBackendMessage({ text: '', isError: false }); // Limpa mensagens anteriores
+    setBackendMessage({ text: '', isError: false });
 
     // 1. Validação do Nome
     const isNameValid = name.trim() !== '';
@@ -47,7 +47,7 @@ function CreateUserPage() {
 
     if (isEmailEmpty) {
       setEmailValid(false);
-      setFormatEmail(true); // Oculta o erro de formato se estiver vazio
+      setFormatEmail(true); 
       isValid = false;
     } else if (!isEmailFormatValid) {
       setEmailValid(true); 
@@ -68,7 +68,7 @@ function CreateUserPage() {
     setSamePassword(isSamePassword);
     if (!isSamePassword) isValid = false;
 
-    // Foco automático no primeiro campo que deu erro
+    // Foco automático no primeiro campoo
     if (!isValid) {
       if (!isNameValid) nameRef.current?.focus();
       else if (isEmailEmpty || !isEmailFormatValid) emailRef.current?.focus();

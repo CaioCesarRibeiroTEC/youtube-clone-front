@@ -11,9 +11,9 @@ function Shorts() {
                 const response = await youtubeApi.get('/search', {
                     params: {
                         part: 'snippet',
-                        q: '#shorts', // A palavra-chave secreta
+                        q: '#shorts',
                         type: 'video',
-                        videoDuration: 'short', // Força a trazer apenas vídeos curtos
+                        videoDuration: 'short',
                         maxResults: 15,
                         regionCode: 'BR',
                         key: import.meta.env.VITE_YOUTUBE_API_KEY
@@ -42,7 +42,7 @@ function Shorts() {
                         
                         {/* Parâmetros na URL para esconder os controlos e repetir o vídeo */}
                         <iframe
-                            loading="lazy" /* A MÁGICA ESTÁ AQUI */
+                            loading="lazy" 
                             width="100%"
                             height="100%"
                             src={`https://www.youtube.com/embed/${short.id}?autoplay=0&controls=0&modestbranding=1&rel=0&loop=1&playlist=${short.id}`}
@@ -51,7 +51,7 @@ function Shorts() {
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                         ></iframe>
-                        {/* Menu Lateral Direito (Gosto, Comentários, Partilhar) */}
+                        {/* Menu Lateral Direito*/}
                         <S.ActionMenu>
                             <S.ActionButton>
                                 <span className="icon">👍</span>

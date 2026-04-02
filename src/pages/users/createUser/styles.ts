@@ -64,7 +64,7 @@ export const CreateLabelContainer = styled.label`
     align-items: flex-start;
 
     .b {
-        width: 150px; /* Largura fixa para manter os inputs alinhados na mesma coluna */
+        width: 150px; 
         margin-top: 10px;
     }
 
@@ -94,7 +94,7 @@ export const Input = styled.input<{ $valid: boolean }>`
     width: 100%; 
     max-width: 320px;
     height: 38px; 
-    border-radius: 8px; /* Bordas um pouco mais quadradas deixam o design mais atual */
+    border-radius: 8px; 
     border: ${({ $valid }) => $valid ? "1px solid #b3b3b3" : "1px solid #cc0000"};
     font-size: 14px; 
     padding-left: 15px;
@@ -178,7 +178,6 @@ export const CreateLoginButtos = styled.div`
 
         &:hover { background-color: #e5e5e5; }
 
-        /* Estiliza apenas o primeiro botão (Criar Usuário) com a cor azul do YouTube */
         &:first-child {
             background-color: #065fd4;
             color: #fff;

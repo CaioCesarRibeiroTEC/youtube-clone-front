@@ -7,7 +7,7 @@ export const UserContext = createContext({} as any);
 export const UserStorage = ({ children }: { children: ReactNode }) => {
     const navigate = useNavigate();
 
-    // Estados de UI (Interface)
+    // Estados de Interface
     const [login, setLogin] = useState(false);
     const [loginPage, setLoginLoginPage] = useState(false); // Modal de Login
     const [openMenu, setOpenMenu] = useState(false); // Menu Lateral
@@ -20,10 +20,10 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
 
     // Estados do Feed e Pesquisa
     const [search, setSearch] = useState('');
-    const [categoryId, setCategoryId] = useState('0'); // 0 = Em Alta geral
+    const [categoryId, setCategoryId] = useState('0');
     const [userVideos, setUserVideos] = useState([]);
 
-    // Validações de Formulário (Mantido global conforme seu projeto)
+    // Validações de Formulário
     const [nameValid, setNameValid] = useState(true);
     const [emailValid, setEmailValid] = useState(true);
     const [passwordValid, setPasswordValid] = useState(true);
@@ -48,7 +48,6 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
     };
 
     const getUser = (currentToken: string) => {
-        // Rota protegida no back-end (que configuramos antes)
         api.get('/users/get-user', { headers: { Authorization: `Bearer ${currentToken}` } })
            .then(({ data }) => {
                 setUser(data.user);
@@ -57,7 +56,7 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
             })
            .catch((err) => {
                 console.log('Usuário não autenticado ou token expirado', err);
-                logOut(); // Se o token for inválido, limpa tudo
+                logOut();
             });
     };
 
@@ -65,14 +64,14 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
         api.post('/users/sign-up', { name, email, password: passwordHash })
            .then(() => {
                 alert('Usuário criado com sucesso!');
-                handleLogin(email, passwordHash); // Já faz o login automático
+                handleLogin(email, passwordHash); 
             })
            .catch((err) => {
                 console.log('Não foi possível criar usuário', err);
                 if (err.response?.status === 400) {
                     alert('Este email já está em uso.');
                 } else {
-                    alert('Não foi possível criar usuário, tente novamente.');
+                    alert('Não foi possível criar usuário, atualize a pagina e tente novamente.');
                 }
             });
     };
@@ -84,7 +83,7 @@ export const UserStorage = ({ children }: { children: ReactNode }) => {
                 localStorage.setItem('token', data.token);
                 setToken(data.token);
                 setUser(data.user);
-                setLoginLoginPage(false); // Fecha o modal/página de login
+                setLoginLoginPage(false);
                 navigate('/');
             })
            .catch((err) => {

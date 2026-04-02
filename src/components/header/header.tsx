@@ -17,7 +17,6 @@ import SeuCanalIcon from '../../assets/menu-icons/seu-canal.png';
 
 function Header() {
   const navigate = useNavigate();
-  // Puxando os dados que precisamos do Contexto
   const { login, user, logOut, openMenu, setOpenMenu, setSearch, openDropDown, setOpenDropDown } = useContext(UserContext);
   
   const [inputValue, setInputValue] = useState('');
@@ -68,7 +67,7 @@ function Header() {
         </S.ButtonContainer>
       </S.SearchContainer>
 
-      {/* Lado Direito (Onde a mágica do Perfil acontece) */}
+      {/* Lado Direito*/}
       <S.HeaderIcons>
         <S.ButtonContainer className="mobile-search" onClick={() => navigate('/search')}>
           <img src={SearchIcon} alt="Pesquisar" />
@@ -94,7 +93,7 @@ function Header() {
               {user && user.name ? user.name.charAt(0).toUpperCase() : 'C'}
             </S.ProfileIcon>
 
-            {/* Menu Dropdown que abre e fecha */}
+            {/* Menu Dropdown*/}
             <S.DropDowContainer $openDropDown={openDropDown}>
               <S.UserInfo>
                 <S.ProfileIcon style={{ marginLeft: 0 }}>

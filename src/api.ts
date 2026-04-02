@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// 1. Instância para o teu Back-end (Node.js na porta 4000)
+// 1. Instância para o Back-end (Node.js na porta 4000)
 export const api = axios.create({
   baseURL: 'https://youtube-clone-back-3.onrender.com',
 });
@@ -18,7 +18,7 @@ api.interceptors.request.use((config) => {
 export const youtubeApi = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3',
     params: {
-        // Injeta a chave do teu .env automaticamente em todos os pedidos ao YouTube!
+        // Injeta a chave do .env automaticamente em todos os pedidos ao YouTube!
         key: import.meta.env.VITE_YOUTUBE_API_KEY, 
     }
 });
