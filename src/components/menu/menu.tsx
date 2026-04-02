@@ -38,8 +38,8 @@ const bloco1 = [
 ];
 
 const bloco2 = [
-    { name: 'Inscrições', imagem: Inscricoes, link: '/em-desenvolvimento' },
     { name: 'Seu Canal', imagem: Voce, link: '/seu-canal' }, 
+    { name: 'Inscrições', imagem: Inscricoes, link: '/em-desenvolvimento' },
     { name: 'Histórico', imagem: Historico, link: '/em-desenvolvimento' }
 ];
 
